@@ -1,0 +1,80 @@
+<CustButton@Button>:
+    font_size: 32
+    source: None
+    background_color: (255, 255, 255, 1.0)
+    #border: (0, 0, 0, 0)
+
+
+    Image:
+        source: root.source
+        pos: root.pos
+        size: root.size
+
+
+<GameSelectLayout>:
+    id: game_selector
+    display: entry
+    rows: 5
+    padding: 10
+    spacing: 10
+    canvas.before:
+        Color:
+            rgba: (1, 1, 1, 1)
+        Rectangle:
+            pos: self.pos
+            size:self.size
+
+    # BoxLayout:
+    #     TextInput:
+    #         id: entry
+    #         font_size: 32
+    #         multiline: True
+
+
+    BoxLayout:
+        spacing: 10
+        orientation: 'vertical'
+
+        TextInput:
+            id: entry
+            font_size: 32
+            multiline: True
+            halign: 'center'
+
+        CustButton:
+            #text: 'Sega Megadrive'
+            source: 'MegaDrive.png'
+            on_press: entry.text = game_selector.select_game('sega_romlist')
+        CustButton:
+            #text: 'NES'
+            source: 'nes_logo.png'
+            on_press: entry.text = game_selector.select_game('nes_romlist')
+        CustButton:
+            #text: 'SNES'
+            source: 'snes_logo.png'
+            on_press: entry.text = game_selector.select_game('snes_romlist')
+        CustButton:
+            #text: 'Gameboy Advance'
+            source: 'gba_logo.png'
+            on_press: entry.text = game_selector.select_game('gba_romlist')
+
+
+    # BoxLayout:
+    #     spacing: 10
+    #     CustButton:
+    #         text: 'NES'
+    #         on_press: entry.text = game_selector.select_game('nes_romlist')
+
+
+    # BoxLayout:
+    #     spacing: 10
+    #     CustButton:
+    #         text: 'SNES'
+    #         on_press: entry.text = game_selector.select_game('snes_romlist')
+
+
+    # BoxLayout:
+    #     spacing: 10
+    #     CustButton:
+    #         text: 'Gameboy Advance'
+    #         on_press: entry.text = game_selector.select_game('gba_romlist')
